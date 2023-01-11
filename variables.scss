@@ -8,3 +8,18 @@ $darkBlue: hsl(223, 47%, 23%);
 
 //font-size
 $prmryFontSize: 16px;
+
+// Mixin
+@mixin breakpoint($point) {
+    @if $point == small {
+      @media (max-width: 480px) { @content; }
+    } @else if $point == medium {
+      @media (min-width: 720px) { @content; }
+    } @else if $point == large {
+      @media (min-width: 960px) { @content; }
+    } @else if $point == wide {
+      @media (max-width: 1440px) { @content; }
+    } @else {
+      @warn 'Not a valid breakpoint name.';
+    }
+  }
